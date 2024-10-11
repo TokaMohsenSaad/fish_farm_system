@@ -21,3 +21,27 @@ export const getAllControls = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+/////////////////////delete a control record
+export const deleteControlRecordById = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Check if the control record exists
+    const [rows] = await db.query("SELECT * FROM control WHERE id = ?", [id]);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "Control record not found" });
+    }
+
+    // Delete the control record
+    await db.query("DELETE FROM control WHERE id = ?", [id]);
+
+    return res
+      .status(200)
+      .json({ message: "Control record deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting control record:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
