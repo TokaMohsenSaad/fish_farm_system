@@ -6,14 +6,9 @@ const con = mysql.createPool({
   user: "root", // Your MySQL username
   password: "root", // Your MySQL password
   database: "fish_farm", // Your MySQL database name
-});
-
-con.getConnection((err) => {
-  if (err) {
-    console.error("Error connecting to MySQL:", err);
-  } else {
-    console.log("Connected to MySQL database");
-  }
+  waitForConnections: true, // Allows the pool to wait for a connection if none are available
+  connectionLimit: 10, // Max number of connections in the pool
+  queueLimit: 0, // Unlimited queue size (you can limit this if needed)
 });
 
 // Export the connection pool

@@ -2,6 +2,8 @@ import express from "express";
 import tankRoutes from "./routes/tankRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import recordsRoutes from "./routes/recordsRoute.js";
+import fishRoutes from "./routes/tankRoutes.js";
+import controlRoutes from "./routes/controlRoutes.js";
 
 const app = express();
 const PORT = 9000;
@@ -13,6 +15,9 @@ app.use("/api/tank", tankRoutes);
 app.use("/api/users", userRoutes);
 
 app.use("/api", recordsRoutes);
+app.use("/api/fish", fishRoutes);
+
+app.use("/api", controlRoutes);
 
 // Start the server
 app.listen(PORT, () => {
