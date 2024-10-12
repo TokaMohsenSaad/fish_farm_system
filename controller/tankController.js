@@ -1,5 +1,4 @@
-// controller/tankController.js
-import con from "../database_connection/db.js"; // Adjust path to your db connection file
+import con from "../database_connection/db.js";
 
 ///////////////////////////////////// Controller function to reset data for a given tank
 export const resetTankData = async (req, res) => {

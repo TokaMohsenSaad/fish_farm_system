@@ -1,4 +1,6 @@
-import pool from "../database_connection/db.js"; // Make sure you're importing the pool correctly
+import pool from "../database_connection/db.js";
+
+//this function is used to retreive all the tanks in the database with all its data
 
 export const getTanksWithFishImages = async (req, res) => {
   try {

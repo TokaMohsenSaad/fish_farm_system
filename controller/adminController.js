@@ -1,7 +1,7 @@
-// controller/adminController.js or controller/userController.js
-import con from "../database_connection/db.js"; // Ensure the correct import path
+import con from "../database_connection/db.js";
 
 // Controller function to handle fetching non-admin users
+//this functions retreives all users of the system
 export const manageUsers = async (req, res) => {
   try {
     const [result] = await con.query(
@@ -26,7 +26,9 @@ export const manageUsers = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////////this function is used to delete a user from the system
 export const deleteUser = async (req, res) => {
+  //frontend should only send the id in the request params or the url of the fetch function
   const { id } = req.params; // Get the user ID from the route parameters
 
   try {
@@ -54,8 +56,11 @@ export const deleteUser = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////////////////this function promotes a user to be admin
+
 // Controller function to handle promoting a user to admin
 export const promoteUserToAdmin = async (req, res) => {
+  //frontend sends the id of the user in the request params or the url of the fetch function
   const { id } = req.params; // Get the user ID from the route parameters
 
   try {
@@ -86,8 +91,11 @@ export const promoteUserToAdmin = async (req, res) => {
   }
 };
 
+////////////////////////////////////////////////////////////////////////this function promotes the user to be an employee
+
 // Controller function to handle promoting a user to employee
 export const promoteUserToEmployee = async (req, res) => {
+  //frontend sends the id in the request params
   const { id } = req.params; // Get the user ID from the route parameters
 
   try {
@@ -97,7 +105,7 @@ export const promoteUserToEmployee = async (req, res) => {
     );
 
     if (result.affectedRows > 0) {
-      // If the user was successfully promoted
+      // If the user was successfully promoted a message is sent along with a status code
       res.status(200).json({
         status: 200,
         message: `User with id:${id} has been updated and accepted as employee.`,
