@@ -1,0 +1,920 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "firstName": "Toka",
+      "lastName": "Mohsen",
+      "email": "tokamohsen@gmail.com",
+      "password": "169232318411"
+    },
+    {
+      "id": "1",
+      "firstName": "Jessica",
+      "lastName": "Mina",
+      "email": "jessicamina@gmail.com",
+      "password": "712572811326"
+    },
+    {
+      "id": "636b",
+      "firstName": "habiba",
+      "lastName": "mohamed",
+      "email": "habiba@gmail.com",
+      "password": "erdyfjbnvygibhkml,"
+    }
+  ],
+  "tanks": [
+    {
+      "name": "1",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Nemo",
+          "ph": 7,
+          "tur": 50,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Dory",
+          "ph": 7.2,
+          "tur": 48,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Marlin",
+          "ph": 7,
+          "tur": 50,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Bubbles",
+          "ph": 7.1,
+          "tur": 51,
+          "temp": 31
+        }
+      ],
+      "id": "1"
+    },
+    {
+      "name": "2",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Oscar",
+          "ph": 6.5,
+          "tur": 40,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Goldie",
+          "ph": 6.6,
+          "tur": 42,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Guppy",
+          "ph": 6.5,
+          "tur": 40,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Angelfish",
+          "ph": 6.7,
+          "tur": 39,
+          "temp": 28
+        }
+      ],
+      "id": "2"
+    },
+    {
+      "name": "3",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Betta",
+          "ph": 7.2,
+          "tur": 45,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Tetra",
+          "ph": 7.1,
+          "tur": 46,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Cichlid",
+          "ph": 7,
+          "tur": 44,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Platy",
+          "ph": 7.3,
+          "tur": 47,
+          "temp": 28
+        }
+      ],
+      "id": "3"
+    },
+    {
+      "name": "4",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Swordtail",
+          "ph": 6.8,
+          "tur": 55,
+          "temp": 26
+        },
+        {
+          "url": "require('')",
+          "name": "Zebrafish",
+          "ph": 6.9,
+          "tur": 54,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "GloFish",
+          "ph": 6.8,
+          "tur": 55,
+          "temp": 26
+        },
+        {
+          "url": "require('')",
+          "name": "Molly",
+          "ph": 7,
+          "tur": 56,
+          "temp": 27
+        }
+      ],
+      "id": "4"
+    },
+    {
+      "name": "5",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Clownfish",
+          "ph": 7.1,
+          "tur": 48,
+          "temp": 31
+        },
+        {
+          "url": "require('')",
+          "name": "Neon Tetra",
+          "ph": 7,
+          "tur": 47,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Cherry Barb",
+          "ph": 7.2,
+          "tur": 49,
+          "temp": 31
+        },
+        {
+          "url": "require('')",
+          "name": "Danio",
+          "ph": 7.1,
+          "tur": 48,
+          "temp": 31
+        }
+      ],
+      "id": "5"
+    },
+    {
+      "name": "6",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Blue Tang",
+          "ph": 7.3,
+          "tur": 60,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Blenny",
+          "ph": 7.2,
+          "tur": 59,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Mandarin Fish",
+          "ph": 7.4,
+          "tur": 58,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Lionfish",
+          "ph": 7.3,
+          "tur": 60,
+          "temp": 27
+        }
+      ],
+      "id": "6"
+    },
+    {
+      "name": "7",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Cardinal Tetra",
+          "ph": 6.8,
+          "tur": 60,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Silver Dollar",
+          "ph": 6.9,
+          "tur": 59,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Bristlenose Pleco",
+          "ph": 6.8,
+          "tur": 60,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Discus",
+          "ph": 7,
+          "tur": 61,
+          "temp": 30
+        }
+      ],
+      "id": "7"
+    },
+    {
+      "name": "8",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Gourami",
+          "ph": 7,
+          "tur": 53,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Killifish",
+          "ph": 7.1,
+          "tur": 52,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Rainbowfish",
+          "ph": 7,
+          "tur": 53,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Loach",
+          "ph": 7.2,
+          "tur": 54,
+          "temp": 28
+        }
+      ],
+      "id": "8"
+    },
+    {
+      "name": "9",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Peacock Cichlid",
+          "ph": 7.4,
+          "tur": 52,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Zebra Cichlid",
+          "ph": 7.3,
+          "tur": 51,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Catfish",
+          "ph": 7.4,
+          "tur": 52,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Pleco",
+          "ph": 7.2,
+          "tur": 53,
+          "temp": 29
+        }
+      ],
+      "id": "9"
+    },
+    {
+      "name": "10",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Tiger Barb",
+          "ph": 7,
+          "tur": 50,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Ram Cichlid",
+          "ph": 6.8,
+          "tur": 48,
+          "temp": 29
+        },
+        {
+          "url": "require('')",
+          "name": "Kribensis",
+          "ph": 7.1,
+          "tur": 47,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Clown Loach",
+          "ph": 7,
+          "tur": 49,
+          "temp": 28
+        }
+      ],
+      "id": "10"
+    },
+    {
+      "name": "11",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Black Ghost",
+          "ph": 7.2,
+          "tur": 45,
+          "temp": 30
+        },
+        {
+          "url": "require('')",
+          "name": "Endler's Livebearer",
+          "ph": 7,
+          "tur": 44,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Arowana",
+          "ph": 7.3,
+          "tur": 46,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Koi",
+          "ph": 7.1,
+          "tur": 47,
+          "temp": 29
+        }
+      ],
+      "id": "11"
+    },
+    {
+      "name": "12",
+      "fishimage": [
+        {
+          "url": "require('')",
+          "name": "Betta Splendens",
+          "ph": 6.9,
+          "tur": 50,
+          "temp": 26
+        },
+        {
+          "url": "require('')",
+          "name": "Clown Pleco",
+          "ph": 7,
+          "tur": 52,
+          "temp": 27
+        },
+        {
+          "url": "require('')",
+          "name": "Harlequin Rasbora",
+          "ph": 6.8,
+          "tur": 51,
+          "temp": 28
+        },
+        {
+          "url": "require('')",
+          "name": "Anglerfish",
+          "ph": 7.1,
+          "tur": 53,
+          "temp": 29
+        }
+      ],
+      "id": "12"
+    },
+    {
+      "id": "2ea1",
+      "name": "10"
+    }
+  ],
+  "records": [
+    {
+      "id": "1",
+      "day": "Tue",
+      "daynum": "1",
+      "tank": "3",
+      "time": "1:12 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "2",
+      "day": "Tue",
+      "daynum": "1",
+      "tank": "1",
+      "time": "4:37 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "3",
+      "day": "Tue",
+      "daynum": "1",
+      "tank": "4",
+      "time": "5:29 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "4",
+      "day": "Tue",
+      "daynum": "1",
+      "tank": "2",
+      "time": "7:45 AM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "5",
+      "day": "Wed",
+      "daynum": "2",
+      "tank": "5",
+      "time": "2:01 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "6",
+      "day": "Wed",
+      "daynum": "2",
+      "tank": "3",
+      "time": "4:22 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "7",
+      "day": "Wed",
+      "daynum": "2",
+      "tank": "8",
+      "time": "5:35 AM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "8",
+      "day": "Wed",
+      "daynum": "2",
+      "tank": "6",
+      "time": "6:48 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "9",
+      "day": "Thu",
+      "daynum": "3",
+      "tank": "7",
+      "time": "1:11 AM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "active"
+    },
+    {
+      "id": "10",
+      "day": "Thu",
+      "daynum": "3",
+      "tank": "9",
+      "time": "5:36 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "11",
+      "day": "Thu",
+      "daynum": "3",
+      "tank": "4",
+      "time": "8:15 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "12",
+      "day": "Thu",
+      "daynum": "3",
+      "tank": "2",
+      "time": "9:45 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "13",
+      "day": "Fri",
+      "daynum": "4",
+      "tank": "8",
+      "time": "1:30 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "14",
+      "day": "Fri",
+      "daynum": "4",
+      "tank": "6",
+      "time": "3:22 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "15",
+      "day": "Fri",
+      "daynum": "4",
+      "tank": "3",
+      "time": "7:40 AM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "16",
+      "day": "Fri",
+      "daynum": "4",
+      "tank": "5",
+      "time": "9:18 AM",
+      "pump": "active",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "17",
+      "day": "Sat",
+      "daynum": "5",
+      "tank": "2",
+      "time": "4:05 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "18",
+      "day": "Sat",
+      "daynum": "5",
+      "tank": "9",
+      "time": "12:55 PM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "19",
+      "day": "Sat",
+      "daynum": "5",
+      "tank": "4",
+      "time": "6:30 PM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "20",
+      "day": "Sat",
+      "daynum": "5",
+      "tank": "1",
+      "time": "8:12 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "21",
+      "day": "Sun",
+      "daynum": "6",
+      "tank": "7",
+      "time": "1:30 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "22",
+      "day": "Sun",
+      "daynum": "6",
+      "tank": "3",
+      "time": "5:15 PM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "23",
+      "day": "Sun",
+      "daynum": "6",
+      "tank": "2",
+      "time": "9:40 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "24",
+      "day": "Sun",
+      "daynum": "6",
+      "tank": "6",
+      "time": "10:10 PM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "25",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "1",
+      "time": "4:45 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "26",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "5",
+      "time": "5:30 PM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "27",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "4",
+      "time": "6:15 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "28",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "2",
+      "time": "8:28 PM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "29",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "6",
+      "time": "9:12 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "30",
+      "day": "Mon",
+      "daynum": "7",
+      "tank": "3",
+      "time": "10:45 PM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "31",
+      "day": "Tue",
+      "daynum": "8",
+      "tank": "5",
+      "time": "2:15 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "32",
+      "day": "Tue",
+      "daynum": "8",
+      "tank": "8",
+      "time": "4:50 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "33",
+      "day": "Tue",
+      "daynum": "8",
+      "tank": "1",
+      "time": "6:35 AM",
+      "pump": "inactive",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "34",
+      "day": "Tue",
+      "daynum": "8",
+      "tank": "2",
+      "time": "10:40 AM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "35",
+      "day": "Wed",
+      "daynum": "9",
+      "tank": "4",
+      "time": "6:05 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "36",
+      "day": "Wed",
+      "daynum": "9",
+      "tank": "3",
+      "time": "1:20 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "active",
+      "heater": "inactive"
+    },
+    {
+      "id": "37",
+      "day": "Wed",
+      "daynum": "9",
+      "tank": "5",
+      "time": "3:12 PM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "38",
+      "day": "Wed",
+      "daynum": "9",
+      "tank": "7",
+      "time": "9:30 PM",
+      "pump": "active",
+      "motor": "inactive",
+      "feeder": "inactive",
+      "heater": "inactive"
+    },
+    {
+      "id": "39",
+      "day": "Thu",
+      "daynum": "10",
+      "tank": "9",
+      "time": "2:10 AM",
+      "pump": "inactive",
+      "motor": "active",
+      "feeder": "inactive",
+      "heater": "active"
+    },
+    {
+      "id": "e7ab",
+      "day": "Sunday",
+      "daynum": "1",
+      "tank": "9",
+      "treatment": "MOTOR",
+      "state": "inactive",
+      "time": "12:10:50 AM"
+    }
+  ],
+  "historyrecord": [
+    {
+      "id": "4",
+      "date": "2024-10-01",
+      "time": "3:30 AM",
+      "ph": "7.9",
+      "temp": "32",
+      "tur": "0.5",
+      "tankid": "4"
+    },
+    {
+      "id": "7",
+      "date": "2024-10-04",
+      "time": "5:00 AM",
+      "ph": "7.4",
+      "temp": "28",
+      "tur": "3.0",
+      "tankid": "7"
+    },
+    {
+      "id": "8",
+      "date": "2024-10-05",
+      "time": "5:30 AM",
+      "ph": "7.3",
+      "temp": "27",
+      "tur": "1.0",
+      "tankid": "8"
+    },
+    {
+      "id": "9",
+      "date": "2024-10-13",
+      "time": "6:00 AM",
+      "ph": "7.2",
+      "temp": "26",
+      "tur": "0.8",
+      "tankid": "9"
+    }
+  ],
+  "admin": [
+    
+  ]
+}
