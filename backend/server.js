@@ -4,12 +4,18 @@ import userRoutes from "./routes/userRoutes.js";
 import recordsRoutes from "./routes/recordsRoute.js";
 import fishRoutes from "./routes/tankRoutes.js";
 import controlRoutes from "./routes/controlRoutes.js";
+import cors from "cors";
 
 const app = express();
 const PORT = 9000;
 
+//http://localhost:9000/api/users/login
+
 // Middleware to parse JSON
 app.use(express.json());
+
+// Enable CORS for all origins
+app.use(cors());
 
 app.use("/api/tank", tankRoutes);
 app.use("/api/users", userRoutes);

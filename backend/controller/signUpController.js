@@ -4,7 +4,8 @@ import con from "../database_connection/db.js"; // assuming you have a file that
 // Signup Controller function
 export const signupUser = async (req, res) => {
   const { email, first_name, password, last_name } = req.body;
-  console.log("reached the API endpoint");
+  const role_id = 0; // Assign role_id as 0 for new users
+  console.log("Reached the API endpoint");
 
   // Check if any field is missing or null
   if (!first_name || !last_name || !email || !password) {
@@ -30,10 +31,10 @@ export const signupUser = async (req, res) => {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insert the new user into the database
+    // Insert the new user into the database with role_id = 0
     await con.query(
-      "INSERT INTO users (password, email, first_name, last_name) VALUES (?, ?, ?, ?)",
-      [hashedPassword, email, first_name, last_name]
+      "INSERT INTO users (password, email, first_name, last_name, role_id) VALUES (?, ?, ?, ?, ?)",
+      [hashedPassword, email, first_name, last_name, role_id]
     );
 
     // Send success response
