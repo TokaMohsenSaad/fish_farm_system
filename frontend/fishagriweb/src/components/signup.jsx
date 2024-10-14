@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Signup() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const inputRefs = useRef({});
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -25,7 +25,6 @@ export default function Signup() {
   };
 
   const handleSubmit = async () => {
-    // Check if all fields are filled
     if (!firstName || !lastName || !email || !password) {
       setMessage({
         show: true,
@@ -53,65 +52,7 @@ export default function Signup() {
       return;
     }
 
-    // /////////////////////////////////Jessica fetch function
-    // try {
-    //   // Check if user already exists
-    //   const response = await fetch(
-    //     `http://localhost:3002/users?email=${email}`
-    //   );
-    //   const data = await response.json();
-
-    //   if (data.length > 0) {
-    //     // User already exists
-    //     setMessage({
-    //       show: true,
-    //       type: "info",
-    //       text: "This User Already exists in our database.",
-    //     });
-    //   } else {
-    //     // Create new user
-    //     const newUser = {
-    //       firstName,
-    //       lastName,
-    //       email,
-    //       password,
-    //     };
-
-    //     await fetch("http://localhost:3002/users", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify(newUser),
-    //     });
-
-    //     // Store user data in localStorage
-    //     localStorage.setItem("userName", firstName);
-    //     localStorage.setItem("userEmail", email);
-
-    //     setMessage({
-    //       show: true,
-    //       type: "success",
-    //       text: "Please wait and an admin will accept your request in a few seconds.",
-    //     });
-
-    //     // Redirect to home after 2 seconds
-    //     setTimeout(() => {
-    //       navigate("/home");
-    //     }, 2000);
-    //   }
-    // } catch (error) {
-    //   console.error("Error during signup:", error);
-    //   setMessage({
-    //     show: true,
-    //     type: "error",
-    //     text: "An error occurred. Please try again later.",
-    //   });
-    // }
-
-    ///////////////////////////chatgpt fetch function
     try {
-      // Create new user object
       const newUser = {
         first_name: firstName,
         last_name: lastName,
@@ -119,7 +60,6 @@ export default function Signup() {
         password,
       };
 
-      // Send request to the backend to sign up the user
       const response = await fetch("http://localhost:9000/api/users/signup", {
         method: "POST",
         headers: {
@@ -128,34 +68,31 @@ export default function Signup() {
         body: JSON.stringify(newUser),
       });
 
-      // Parse the response
+      // Parse response regardless of status
       const data = await response.json();
 
-      // Handle different response status codes
       if (response.status === 200) {
-        // User successfully created
         localStorage.setItem("userName", data.data.first_name);
         localStorage.setItem("userEmail", data.data.email);
 
         setMessage({
           show: true,
           type: "success",
-          text: "Please wait and an admin will accept your request in a few seconds.",
+          text: "Please wait for the admin approval",
         });
 
         // Redirect to home after 2 seconds
-        setTimeout(() => {
-          navigate("/home");
-        }, 2000);
+        // setTimeout(() => {
+        //   navigate("/home");
+        // }, 2000);
       } else if (response.status === 409) {
-        // User already exists
+        // Handle 409 Conflict (User already exists)
         setMessage({
           show: true,
           type: "info",
-          text: data.message, // "User already exists"
+          text: data.message, // Parse and display message from backend
         });
       } else {
-        // Any other error
         setMessage({
           show: true,
           type: "error",
@@ -244,63 +181,179 @@ export default function Signup() {
               </p>
 
               {/* Display messages */}
-              {/*message.show && (
-                                message.type === 'error' ? (
-                                    <div className='unvalidone' style={{ display: 'flex', textAlign: 'start' }}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style={{ width: '20px', height: '20px', position: 'absolute', top: '13%', right: '3%', cursor: 'pointer' }} onClick={closeMessage}>
-                                            <path fill='white' d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                                        </svg>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style={{ width: '45px', height: '45px', position: 'absolute', top: '28%', left: '2.5%' }}>
-                                                <path fill='white' d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-                                            </svg>
-                                            <div style={{ marginRight: '15px', color: 'white', position: 'absolute', top: '8%', left: '15%' }}>
-                                                <p>
-                                                    Error
-                                                    <br />
-                                                    {message.text}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : message.type === 'info' ? (
-                                    <div className='infoone' style={{ display: 'flex', textAlign: 'start' }}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style={{ width: '20px', height: '20px', position: 'absolute', top: '13%', right: '3%', cursor: 'pointer' }} onClick={closeMessage}>
-                                            <path fill='white' d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                                        </svg>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style={{ width: '45px', height: '45px', position: 'absolute', top: '28%', left: '2.5%' }}>
-                                                <path fill='white' d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" />
-                                            </svg>
-                                            <div style={{ marginRight: '15px', color: 'white', position: 'absolute', top: '8%', left: '15%' }}>
-                                                <p>
-                                                    Info
-                                                    <br />
-                                                    {message.text}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className='successone' style={{ display: 'flex', textAlign: 'start' }}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style={{ width: '25px', height: '25px', position: 'absolute', top: '13%', right: '3%', cursor: 'pointer' }} onClick={closeMessage}>
-                                            <path fill='white' d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
-                                        </svg>
-                                        <div>
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{ width: '45px', height: '45px', position: 'absolute', top: '28%', left: '2.5%' }}> 
-                                                <path fill='white' d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-                                            </svg>
-                                            <div style={{ marginRight: '15px', color: 'white', position: 'absolute', top: '8%', left: '15%' }}>
-                                                <p>
-                                                    Success
-                                                    <br />
-                                                    {message.text}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            )*/}
+              {message.show &&
+                (message.type === "error" ? (
+                  <div
+                    className="unvalidone"
+                    style={{ display: "flex", textAlign: "start" }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "absolute",
+                        top: "13%",
+                        right: "3%",
+                        cursor: "pointer",
+                      }}
+                      onClick={closeMessage}
+                    >
+                      <path
+                        fill="white"
+                        d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                      />
+                    </svg>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        style={{
+                          width: "45px",
+                          height: "45px",
+                          position: "absolute",
+                          top: "28%",
+                          left: "2.5%",
+                        }}
+                      >
+                        <path
+                          fill="white"
+                          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          marginRight: "15px",
+                          color: "white",
+                          position: "absolute",
+                          top: "8%",
+                          left: "15%",
+                        }}
+                      >
+                        <p>
+                          Error
+                          <br />
+                          {message.text}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : message.type === "info" ? (
+                  <div
+                    className="infoone"
+                    style={{ display: "flex", textAlign: "start" }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        position: "absolute",
+                        top: "13%",
+                        right: "3%",
+                        cursor: "pointer",
+                      }}
+                      onClick={closeMessage}
+                    >
+                      <path
+                        fill="white"
+                        d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                      />
+                    </svg>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        style={{
+                          width: "45px",
+                          height: "45px",
+                          position: "absolute",
+                          top: "28%",
+                          left: "2.5%",
+                        }}
+                      >
+                        <path
+                          fill="white"
+                          d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-112c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          marginRight: "15px",
+                          color: "white",
+                          position: "absolute",
+                          top: "8%",
+                          left: "15%",
+                        }}
+                      >
+                        <p>
+                          Info
+                          <br />
+                          {message.text}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div
+                    className="successone"
+                    style={{ display: "flex", textAlign: "start" }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                      style={{
+                        width: "25px",
+                        height: "25px",
+                        position: "absolute",
+                        top: "13%",
+                        right: "3%",
+                        cursor: "pointer",
+                      }}
+                      onClick={closeMessage}
+                    >
+                      <path
+                        fill="white"
+                        d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                      />
+                    </svg>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                        style={{
+                          width: "45px",
+                          height: "45px",
+                          position: "absolute",
+                          top: "28%",
+                          left: "2.5%",
+                        }}
+                      >
+                        <path
+                          fill="white"
+                          d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                        />
+                      </svg>
+                      <div
+                        style={{
+                          marginRight: "15px",
+                          color: "white",
+                          position: "absolute",
+                          top: "8%",
+                          left: "15%",
+                        }}
+                      >
+                        <p>
+                          Success
+                          <br />
+                          {message.text}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               <div>
                 <div className="loginwith"></div>
                 <div className="loginwith"></div>

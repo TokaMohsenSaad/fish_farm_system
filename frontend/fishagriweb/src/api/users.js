@@ -1,14 +1,12 @@
 import { BASE_URL, sleep } from "./api";
 
-const getAllusersAPIEndpoint = "http://localhost:9000/users/manage";
-
 const getAllUsers = async () => {
-  // const res = await fetch(getAllusersAPIEndpoint);
-  // const data = await res.json();
-  // console.log(data);
-  // return data;
-  await sleep(2000);
-  // throw new Error("Failed to fetch users");
+  const res = await fetch("http://localhost:9000/api/users/manage");
+  const data = await res.json();
+  console.log(data);
+  return data;
+  // await sleep(2000);
+  // // throw new Error("Failed to fetch users");
 };
 
 const addEmployeeUrl = "http://localhost:9000/users/manage/";
