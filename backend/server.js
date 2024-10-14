@@ -9,7 +9,8 @@ import cors from "cors";
 const app = express();
 const PORT = 9000;
 
-//http://localhost:9000/api/users/login
+//http://localhost:9000/api/users/manage/
+//http://localhost:9000/api/controls
 
 // Middleware to parse JSON
 app.use(express.json());

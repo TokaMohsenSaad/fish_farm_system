@@ -5,7 +5,7 @@ import con from "../database_connection/db.js";
 export const manageUsers = async (req, res) => {
   try {
     const [result] = await con.query(
-      "SELECT id, email, first_name, last_name, role_id FROM users WHERE role_id != 2"
+      "SELECT id, email, first_name, last_name, role_id FROM users "
     );
 
     // If needed, log the result for debugging (in development only)

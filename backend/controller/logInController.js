@@ -27,14 +27,14 @@ export const loginUser = async (req, res) => {
 
       if (passwordMatch) {
         // Passwords match, send success response
-        const { first_name, last_name, email, roleID } = rows[0];
+        const { first_name, last_name, email, role_id } = rows[0];
         let isAdmin = false;
         let isEmployee = false;
 
         // Determine user role
-        if (roleID === 1) {
+        if (role_id === 2) {
           isAdmin = true;
-        } else if (roleID === 2) {
+        } else if (role_id === 1) {
           isEmployee = true;
         }
 
