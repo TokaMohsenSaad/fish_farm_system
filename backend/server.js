@@ -10,7 +10,7 @@ const app = express();
 const PORT = 9000;
 
 //http://localhost:9000/api/users/manage/
-//http://localhost:9000/api/controls
+//http://localhost:9000/api
 
 // Middleware to parse JSON
 app.use(express.json());

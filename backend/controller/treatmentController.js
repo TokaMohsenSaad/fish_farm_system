@@ -90,3 +90,29 @@ export const addControlRecord = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
+////////////////////////////////////retrieve records based on a specific date
+export const getControlsByDate = async (req, res) => {
+  const { date } = req.body; // Get the date from the request body
+
+  try {
+    // Query the database for records where the date part of date_time matches the provided date
+    const [controls] = await db.query(
+      "SELECT * FROM control WHERE DATE(date_time) = ?",
+      [date]
+    );
+
+    // If no records are found, respond with a 404 message
+    if (controls.length === 0) {
+      return res
+        .status(404)
+        .json({ message: "No control records found for the specified date" });
+    }
+
+    // Respond with the control records for the specified date
+    return res.status(200).json(controls);
+  } catch (error) {
+    console.error("Error while retrieving control records:", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
