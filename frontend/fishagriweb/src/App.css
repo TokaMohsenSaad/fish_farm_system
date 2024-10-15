@@ -356,6 +356,7 @@ body
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     transform: translateX(100%);
+    z-index: 1000;
 }
 
 .sort-bar.open,
@@ -402,7 +403,7 @@ body
     width: 15px;
     height: 15px;
     font-weight: bold;
-    margin-top: 28px;
+    margin-top: 10px;
     margin-left: 10px;
 }
 .options
@@ -416,6 +417,4 @@ body
 .options:hover
 {
     background-color: rgba(128, 128, 128, 0.247);
-    color: #ffffff91;
-    color: #9b9b9b;
 }

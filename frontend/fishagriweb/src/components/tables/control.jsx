@@ -1,56 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Conttable() {
+export default function Conttable({ selectedDate, setSelectedDate }) { // Accept props
   const [records, setRecords] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(null);
   const [filteredRecords, setFilteredRecords] = useState([]);
-  const [dayNumbers, setDayNumbers] = useState([]);
 
   useEffect(() => {
-    // axios.get('http://localhost:3002/records')
-    //     .then(response => {
-    //         console.log("Fetched Records:", response.data);
-    //         setRecords(response.data);
-    //         // Extract unique day numbers from records
-    //         const uniqueDayNumbers = [...new Set(response.data.map(record => record.daynum))];
-    //         setDayNumbers(uniqueDayNumbers);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error fetching records:', error);
-    //     });
-
-    axios
-      .get("http://localhost:9000/api/controls") // Ensure the route matches the backend endpoint
-      .then((response) => {
+    const fetchRecords = async () => {
+      try {
+        const response = await axios.get("http://localhost:3002/records");
         if (response.status === 200) {
-          console.log("Fetched Control Records:", response.data);
-          setRecords(response.data); // Assuming you're saving all records to a state called records
+          console.log("Fetched Records:", response.data);
+          setRecords(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching records:", error);
+      }
+    };
 
-          // Extract unique day numbers from the records
-          const uniqueDayNumbers = [
-            ...new Set(response.data.map((record) => record.daynum)),
-          ];
-          setDayNumbers(uniqueDayNumbers);
-        }
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          console.error(
-            "No control records found:",
-            error.response.data.message
-          );
-        } else {
-          console.error("Error fetching records:", error);
-        }
-      });
+    fetchRecords();
   }, []);
 
   useEffect(() => {
     if (selectedDate) {
-      console.log("Selected Date:", selectedDate);
       const filtered = records.filter(
-        (record) => record.daynum === selectedDate
+        (record) => record.daynum === selectedDate.daynum
       );
       console.log("Filtered Records:", filtered);
       setFilteredRecords(filtered);
@@ -60,7 +34,9 @@ export default function Conttable() {
   }, [selectedDate, records]);
 
   const handleDateClick = (daynum) => {
-    setSelectedDate(daynum);
+    // Update selectedDate with both day and daynum
+    const day = new Date(2024, 9, daynum).toLocaleString('default', { weekday: 'long' });
+    setSelectedDate({ day, daynum }); // Pass both values
   };
 
   const handleDelete = (id) => {
@@ -90,15 +66,15 @@ export default function Conttable() {
               style={{
                 left: `${index * 55 - 300}px`,
                 top: `${Math.abs(5 - index) * 10}px`,
-                backgroundColor: selectedDate === day ? "#46a2f5" : "white",
-                color: selectedDate === day ? "white" : "black",
-                padding: "9px",
+                backgroundColor: selectedDate?.daynum === day ? "#46a2f5" : "white",
+                color: selectedDate?.daynum === day ? "white" : "black",
+                padding: "7px",
                 border: "1px solid #46a2f5",
                 borderRadius: "5px",
                 transition: "background-color 0.3s, color 0.3s",
                 position: "absolute",
-                width: "30px",
-                height: "65px",
+                width: "46px",
+                height: "80px",
               }}
               onClick={() => handleDateClick(day)}
             >
@@ -261,7 +237,7 @@ export default function Conttable() {
                   backgroundColor: "white",
                 }}
               >
-                No records found for this date.
+                No records found for the selected date.
               </td>
             </tr>
           )}

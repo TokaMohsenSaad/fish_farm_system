@@ -204,7 +204,6 @@ const data = {
                                         <button
                                             onClick={(e) => { e.stopPropagation(); handleDeleteRecord(record.id); }}
                                             style={{ 
-                                                marginTop: '10px', 
                                                 border: 'none', 
                                                 backgroundColor: 'transparent', 
                                                 color: '#ff4c4c', 
@@ -220,19 +219,19 @@ const data = {
                                     <div style={{ width: '550px', height: '1px', backgroundColor: '#46a2f5' }}></div>
                                     <p style={{ fontWeight: 'bold', fontSize: '20px' }}>Tank {record.tankid}</p>
                                     <div style={{ display: 'flex' }}>
-                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#4a7ea8', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '18px', marginRight: '5px' }}>
+                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#4a7ea8', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '5px', marginRight: '5px' }}>
                                             <div style={{ width: '9px', height: '9px', backgroundColor: 'white', marginTop: '3px' }}></div>
                                         </div>
                                         <p style={{ fontWeight: 'bold', color: '#4a7ea8', fontSize: '18px' }}>{record.ph}</p>
                                     </div>
                                     <div style={{ display: 'flex' }}>
-                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#497e7c', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '18px', marginRight: '5px' }}>
+                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#497e7c', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '5px', marginRight: '5px' }}>
                                             <div style={{ width: '9px', height: '9px', backgroundColor: 'white', marginTop: '3px' }}></div>
                                         </div>
                                         <p style={{ fontWeight: 'bold', color: '#497e7c', fontSize: '18px' }}>{record.temp} °C</p>
                                     </div>
                                     <div style={{ display: 'flex' }}>
-                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#284e4a', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '18px', marginRight: '5px' }}>
+                                        <div style={{ width: '15px', height: '15px', backgroundColor: '#284e4a', display: 'flex', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', marginTop: '5px', marginRight: '5px' }}>
                                             <div style={{ width: '9px', height: '9px', backgroundColor: 'white', marginTop: '3px' }}></div>
                                         </div>
                                         <p style={{ fontWeight: 'bold', color: '#284e4a', fontSize: '18px' }}>{record.tur} NTU</p>

@@ -34,11 +34,11 @@ const SortAndFiltersBar = ({
     <>
       {isSortBarOpen && <div className="overlay" onClick={toggleSortBar}></div>}
       <div className={`sort-bar ${isSortBarOpen ? 'open' : ''} w-80 h-full`}>
-        <h2 style={{ fontWeight: 'bold' }}>Sort Options</h2>
+        <h2 style={{ fontWeight: 'bold', textAlign: 'center', marginTop: '20px' }}>Sort Options</h2>
         <div className="sort-options">
           <div className="sort-option">
             <button className="sort-btn" style={{ display: 'flex' }} onClick={() => handleDropdownToggle('ph')}>
-              <h1 style={{ fontWeight: 'bold' }}>pH Level</h1>
+              <h1 style={{ fontWeight: 'bold', fontSize: '25px' }}>pH Level</h1>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="chevron-icon" fill="black">
                 <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
               </svg>
@@ -53,7 +53,7 @@ const SortAndFiltersBar = ({
           <hr />
           <div className="sort-option">
             <button className="sort-btn" style={{ display: 'flex' }} onClick={() => handleDropdownToggle('turbidity')}>
-              <h1 style={{ fontWeight: 'bold' }}>Turbidity</h1>
+              <h1 style={{ fontWeight: 'bold', fontSize: '25px' }}>Turbidity</h1>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="chevron-icon" fill="black">
                 <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
               </svg>
@@ -68,7 +68,7 @@ const SortAndFiltersBar = ({
           <hr />
           <div className="sort-option">
             <button className="sort-btn" style={{ display: 'flex' }} onClick={() => handleDropdownToggle('temp')}>
-              <h1 style={{ fontWeight: 'bold' }}>Temperature</h1>
+              <h1 style={{ fontWeight: 'bold', fontSize: '25px' }}>Temperature</h1>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="chevron-icon" fill="black">
                 <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
               </svg>
@@ -85,7 +85,7 @@ const SortAndFiltersBar = ({
 
       {isFiltersBarOpen && <div className="overlay" onClick={toggleFiltersBar}></div>}
       <div className={`filters-bar ${isFiltersBarOpen ? 'open' : ''} w-80 h-full`}>
-        <h2 style={{ fontWeight: 'bold' }}>Filter Options</h2>
+        <h2 style={{ fontWeight: 'bold', textAlign: 'center', marginTop: '20px' }}>Filter Options</h2>
         <div className="filters">
           <div className="filter">
             <h3 style={{ fontWeight: 'bold' }}>Filter by Date</h3>
@@ -106,7 +106,7 @@ const SortAndFiltersBar = ({
               className="time-input" 
             />
           </div>
-          <button onClick={handleFilterApply} className="apply-filters-btn">Apply Filters</button>
+          <button onClick={handleFilterApply} className="apply-filters-btn" style={{ backgroundColor: '#46a2f5', width: '260px', height: '40px', fontWeight: 'bold', borderRadius: '8px', fontSize: '15px' }}>Apply Filters</button>
         </div>
       </div>
     </>
