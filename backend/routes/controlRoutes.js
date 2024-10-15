@@ -17,7 +17,10 @@ router.delete("/delete-control/:id", deleteControlRecordById);
 // Add a new control record
 router.post("/addcontrol", addControlRecord);
 
+// //retrieve records of specific date
+// router.post("/control_by_date", getControlsByDate);
+
 //retrieve records of specific date
-router.post("/control_by_date", getControlsByDate);
+router.post("/controls?daynum=<formattedDate>", getControlsByDate);
 
 export default router;

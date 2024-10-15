@@ -52,10 +52,10 @@ export const addControlRecord = async (req, res) => {
   const { tank_no, treatment, state } = req.body;
 
   // Initialize control values
-  let pump = 0;
-  let motor = 0;
-  let feeder = 0;
-  let heater = 0;
+  let pump = "inactive";
+  let motor = "inactive";
+  let feeder = "inactive";
+  let heater = "inactive";
 
   // Validate treatment
   const validTreatments = ["pump", "motor", "feeder", "heater"];
@@ -66,10 +66,10 @@ export const addControlRecord = async (req, res) => {
   try {
     // If state is active, set the treatment field to 1
     if (state === "active") {
-      if (treatment === "pump") pump = 1;
-      else if (treatment === "motor") motor = 1;
-      else if (treatment === "feeder") feeder = 1;
-      else if (treatment === "heater") heater = 1;
+      if (treatment === "pump") pump = "active";
+      else if (treatment === "motor") motor = "active";
+      else if (treatment === "feeder") feeder = "active";
+      else if (treatment === "heater") heater = "active";
     }
 
     // If state is inactive, all values should remain 0
@@ -93,13 +93,13 @@ export const addControlRecord = async (req, res) => {
 
 ////////////////////////////////////retrieve records based on a specific date
 export const getControlsByDate = async (req, res) => {
-  const { date } = req.body; // Get the date from the request body
+  const { daynum } = req.query; // Get the date from query parameters
 
   try {
     // Query the database for records where the date part of date_time matches the provided date
     const [controls] = await db.query(
       "SELECT * FROM control WHERE DATE(date_time) = ?",
-      [date]
+      [daynum]
     );
 
     // If no records are found, respond with a 404 message
