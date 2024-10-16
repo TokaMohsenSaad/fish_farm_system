@@ -10,7 +10,7 @@ const app = express();
 const PORT = 9000;
 
 //http://localhost:9000/api/users/manage/
-//http://localhost:9000/api/addcontrol
+//http://localhost:9000/api/historyrecord/:id
 
 //http://localhost:9000/api/controls?daynum=<formattedDate>
 
