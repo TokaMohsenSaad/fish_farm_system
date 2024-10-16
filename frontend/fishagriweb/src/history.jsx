@@ -13,10 +13,13 @@ export default function History() {
   const [isSortBarOpen, setSortBarOpen] = useState(false);
   const [isFiltersBarOpen, setFiltersBarOpen] = useState(false);
   const [sortOption, setSortOption] = useState(null);
-  const [filterOptions, setFilterOptions] = useState({
-    date: null,
-    time: null,
-  });
+  const [filterOptions, setFilterOptions] = useState({ date: "", time: "" });
+
+  // Reset Filters and Sort
+  const handleResetFiltersAndSort = () => {
+    setFilterOptions({ date: null, time: null });
+    setSortOption(null);
+  };
 
   useEffect(() => {
     const fetchHistoryRecords = async () => {
@@ -134,6 +137,12 @@ export default function History() {
     ],
   };
 
+  // Handle filter change from child component
+  const handleFilterChange = ({ date, time, filteredRecords }) => {
+    console.log("Received filtered records:", filteredRecords);
+    setFilteredRecords(filteredRecords); // Update state with filtered records
+  };
+
   return (
     <>
       <SortAndFiltersBar
@@ -143,8 +152,11 @@ export default function History() {
         isFiltersBarOpen={isFiltersBarOpen}
         toggleFiltersBar={() => setFiltersBarOpen(!isFiltersBarOpen)}
         filterOptions={filterOptions}
-        onFilterChange={setFilterOptions}
+        onFilterChange={handleFilterChange} // Pass the filter change handler
+        filteredRecords={historyRecords}
       />
+      <button onClick={handleResetFiltersAndSort}>Reset Filters & Sort</button>
+
       <div className="back" style={{ overflowY: "scroll", display: "flex" }}>
         <div style={{ marginTop: "100px", marginLeft: "100px" }}>
           <ul style={{ listStyleType: "none" }}>
