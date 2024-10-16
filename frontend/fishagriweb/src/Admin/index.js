@@ -619,232 +619,234 @@ const Admin = () => {
 
   return (
     <>
-      <div className="bg-white" style={{ height: "100px" }}></div>
+      <div className="back">
+        <div style={{ height: "100px", backgroundColor: "transparent" }}></div>
 
-      <div className={styles.heading}>
-        <WavingHand />
-        <h1 className="d-inline ms-2">Hello Admin,</h1>
-        <h5 className="ms-5 mb-4">
-          On this page, you can manage email registrations by approving them as
-          employees, designating them as admins, or rejecting them to maintain
-          system security.
-        </h5>
-      </div>
+        <div className={styles.heading}>
+          <WavingHand />
+          <h1 className="d-inline ms-2">Hello Admin,</h1>
+          <h5 className="ms-5 mb-4">
+            On this page, you can manage email registrations by approving them
+            as employees, designating them as admins, or rejecting them to
+            maintain system security.
+          </h5>
+        </div>
 
-      <Container className="control-panel text-center justify-content-center">
-        <Form className="form">
-          <InputGroup className="my-3">
-            <InputGroup.Text> Number of rows to display:</InputGroup.Text>
-            <Form.Control
-              placeholder=" Number of rows"
-              onChange={handleRowsChange}
-            />
-            <InputGroup.Text>Search</InputGroup.Text>
-            <Form.Control
-              placeholder="Search Full Name or Email"
-              onChange={(e) => setSearchDate(e.target.value)}
-            />
-          </InputGroup>
-        </Form>
+        <Container className="control-panel text-center justify-content-center">
+          <Form className="form">
+            <InputGroup className="my-3">
+              <InputGroup.Text> Number of rows to display:</InputGroup.Text>
+              <Form.Control
+                placeholder=" Number of rows"
+                onChange={handleRowsChange}
+              />
+              <InputGroup.Text>Search</InputGroup.Text>
+              <Form.Control
+                placeholder="Search Full Name or Email"
+                onChange={(e) => setSearchDate(e.target.value)}
+              />
+            </InputGroup>
+          </Form>
 
-        {error ? (
-          <InputGroup className="my-3 justify-content-center">
-            <Alert
-              key="danger"
-              variant="danger"
-              className="mt-3 mb-0 w-50 text-center ms-3"
-            >
-              <FontAwesomeIcon icon={faTriangleExclamation} /> {error}
-            </Alert>
-          </InputGroup>
-        ) : !dataUser.length ? (
-          <Container className="d-flex justify-content-center flex-column align-items-center">
-            <Spinner animation="border" size="xl" />
-            <h3 className="text-center">Loading...</h3>
-          </Container>
-        ) : (
-          <div className="table-responsive-sm table-responsive-md">
-            <Table className={`${styles.customTable}`}>
-              <caption className="fw-bolder">List of Users Accounts</caption>
-              <thead className="table-info">
-                <tr>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                  >
-                    ID
-                    <OverlayTrigger overlay={renderTooltip}>
-                      <FontAwesomeIcon
-                        icon={faArrowsUpDown}
-                        className="icon"
-                        onClick={() => sorting("id")}
-                      />
-                    </OverlayTrigger>
-                  </th>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                  >
-                    First Name
-                  </th>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                  >
-                    Last Name
-                  </th>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                  >
-                    Email
-                  </th>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                  >
-                    Role ID
-                    <OverlayTrigger overlay={renderTooltip}>
-                      <FontAwesomeIcon
-                        icon={faArrowsUpDown}
-                        className="icon"
-                        onClick={() => sorting("role_id")}
-                      />
-                    </OverlayTrigger>
-                  </th>
-                  <th
-                    className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
-                    colspan="3"
-                  >
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="table-group-divide">
-                {dataUser
-                  .slice(0, rowsToShow)
-                  .filter((item) => {
-                    return searchDate === ""
-                      ? item
-                      : item.first_name
-                          .toLowerCase()
-                          .includes(searchDate.toLowerCase()) ||
-                          item.email
+          {error ? (
+            <InputGroup className="my-3 justify-content-center">
+              <Alert
+                key="danger"
+                variant="danger"
+                className="mt-3 mb-0 w-50 text-center ms-3"
+              >
+                <FontAwesomeIcon icon={faTriangleExclamation} /> {error}
+              </Alert>
+            </InputGroup>
+          ) : !dataUser.length ? (
+            <Container className="d-flex justify-content-center flex-column align-items-center">
+              <Spinner animation="border" size="xl" />
+              <h3 className="text-center">Loading...</h3>
+            </Container>
+          ) : (
+            <div className="table-responsive-sm table-responsive-md">
+              <Table className={`${styles.customTable}`}>
+                <caption className="fw-bolder">List of Users Accounts</caption>
+                <thead className="table-info">
+                  <tr>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                    >
+                      ID
+                      <OverlayTrigger overlay={renderTooltip}>
+                        <FontAwesomeIcon
+                          icon={faArrowsUpDown}
+                          className="icon"
+                          onClick={() => sorting("id")}
+                        />
+                      </OverlayTrigger>
+                    </th>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                    >
+                      First Name
+                    </th>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                    >
+                      Last Name
+                    </th>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                    >
+                      Email
+                    </th>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                    >
+                      Role ID
+                      <OverlayTrigger overlay={renderTooltip}>
+                        <FontAwesomeIcon
+                          icon={faArrowsUpDown}
+                          className="icon"
+                          onClick={() => sorting("role_id")}
+                        />
+                      </OverlayTrigger>
+                    </th>
+                    <th
+                      className={`${styles.headColor} ${styles.selected} ${styles.tableBack} text-center`}
+                      colspan="3"
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="table-group-divide">
+                  {dataUser
+                    .slice(0, rowsToShow)
+                    .filter((item) => {
+                      return searchDate === ""
+                        ? item
+                        : item.first_name
                             .toLowerCase()
-                            .includes(searchDate.toLowerCase());
-                  })
-                  .map((item, index) => (
-                    <tr key={index}>
-                      <td
-                        className={`${styles.selectedCell} ${styles.tank} text-center`}
-                      >
-                        {item.id}
-                      </td>
-                      <td
-                        className={`${styles.selectedCell} ${styles.tank} text-center`}
-                      >
-                        {item.first_name}
-                      </td>
-                      <td className={`${styles.selectedCell} text-center`}>
-                        {item.last_name}
-                      </td>
-                      <td className={`${styles.selectedCell} text-center`}>
-                        {item.email}
-                      </td>
-                      <td className={`${styles.selectedCell} text-center`}>
-                        {item.role_id}
-                      </td>
-                      <td className="me-0 pe-0 text-center">
-                        {item.roleID
-                          ? null
-                          : showEmployeeButtons[index] && (
-                              <Button
-                                variant="primary"
-                                disabled={loadEmployee[index]}
-                                className=" mx-0 my-2"
-                                onClick={() => addEmployee(item.id, index)}
-                              >
-                                {loadEmployee[index] ? (
-                                  <>
-                                    <Spinner
-                                      as="span"
-                                      animation="grow"
-                                      size="sm"
-                                      role="status"
-                                      aria-hidden="true"
-                                    />
-                                    Loading...
-                                  </>
-                                ) : (
-                                  "Add as Employee"
-                                )}
-                              </Button>
-                            )}
-                      </td>
-                      <td>
-                        {item.roleID
-                          ? null
-                          : showEmployeeButtons[index] && (
-                              <Button
-                                variant="success"
-                                disabled={loadingAdmin[index]}
-                                className=" mx-0 my-2"
-                                onClick={() => addAdmin(item.id, index)}
-                              >
-                                {loadingAdmin[index] ? (
-                                  <>
-                                    <Spinner
-                                      as="span"
-                                      animation="grow"
-                                      size="sm"
-                                      role="status"
-                                      aria-hidden="true"
-                                    />
-                                    Loading...
-                                  </>
-                                ) : (
-                                  "Add as Admin"
-                                )}
-                              </Button>
-                            )}
-                      </td>
-
-                      <td>
-                        <Button
-                          variant="danger"
-                          disabled={loadingReject[index]}
-                          className=" mx-0 btn my-2"
-                          onClick={() => handleReject(item.id, index)}
+                            .includes(searchDate.toLowerCase()) ||
+                            item.email
+                              .toLowerCase()
+                              .includes(searchDate.toLowerCase());
+                    })
+                    .map((item, index) => (
+                      <tr key={index}>
+                        <td
+                          className={`${styles.selectedCell} ${styles.tank} text-center`}
                         >
-                          {loadingReject[index] ? (
-                            <>
-                              <Spinner
-                                as="span"
-                                animation="grow"
-                                size="sm"
-                                role="status"
-                                aria-hidden="true"
-                              />
-                              Loading...
-                            </>
-                          ) : (
-                            "Reject"
-                          )}
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </Table>
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>Message</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>{modalMessage}</Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" onClick={() => setShowModal(false)}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </div>
-        )}
-      </Container>
+                          {item.id}
+                        </td>
+                        <td
+                          className={`${styles.selectedCell} ${styles.tank} text-center`}
+                        >
+                          {item.first_name}
+                        </td>
+                        <td className={`${styles.selectedCell} text-center`}>
+                          {item.last_name}
+                        </td>
+                        <td className={`${styles.selectedCell} text-center`}>
+                          {item.email}
+                        </td>
+                        <td className={`${styles.selectedCell} text-center`}>
+                          {item.role_id}
+                        </td>
+                        <td className="me-0 pe-0 text-center">
+                          {item.roleID
+                            ? null
+                            : showEmployeeButtons[index] && (
+                                <Button
+                                  variant="primary"
+                                  disabled={loadEmployee[index]}
+                                  className=" mx-0 my-2"
+                                  onClick={() => addEmployee(item.id, index)}
+                                >
+                                  {loadEmployee[index] ? (
+                                    <>
+                                      <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                      />
+                                      Loading...
+                                    </>
+                                  ) : (
+                                    "Add as Employee"
+                                  )}
+                                </Button>
+                              )}
+                        </td>
+                        <td>
+                          {item.roleID
+                            ? null
+                            : showEmployeeButtons[index] && (
+                                <Button
+                                  variant="success"
+                                  disabled={loadingAdmin[index]}
+                                  className=" mx-0 my-2"
+                                  onClick={() => addAdmin(item.id, index)}
+                                >
+                                  {loadingAdmin[index] ? (
+                                    <>
+                                      <Spinner
+                                        as="span"
+                                        animation="grow"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                      />
+                                      Loading...
+                                    </>
+                                  ) : (
+                                    "Add as Admin"
+                                  )}
+                                </Button>
+                              )}
+                        </td>
+
+                        <td>
+                          <Button
+                            variant="danger"
+                            disabled={loadingReject[index]}
+                            className=" mx-0 btn my-2"
+                            onClick={() => handleReject(item.id, index)}
+                          >
+                            {loadingReject[index] ? (
+                              <>
+                                <Spinner
+                                  as="span"
+                                  animation="grow"
+                                  size="sm"
+                                  role="status"
+                                  aria-hidden="true"
+                                />
+                                Loading...
+                              </>
+                            ) : (
+                              "Reject"
+                            )}
+                          </Button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </Table>
+              <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{modalMessage}</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="primary" onClick={() => setShowModal(false)}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
+          )}
+        </Container>
+      </div>
     </>
   );
 };
