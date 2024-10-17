@@ -52,8 +52,8 @@ export default function Discover() {
                         <TankData tank={selectedTank} onBack={handleBackClick} onUpdateFish={addTank} />
                     ) : (
                         <>
-                            <h1 style={{ color: '#46a2f5', fontWeight: 'normal' }}>Our Products</h1>
-                            <p style={{ width: '25%', margin: '0 auto' }}>
+                            <h1 style={{ color: '#46a2f5', fontWeight: 'normal', marginTop: '15px' }}>Our Products</h1>
+                            <p style={{ width: '40%', margin: '0 auto' }}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper convallis fermentum.
                             </p>
                             <button

@@ -6,9 +6,9 @@ const TankData = ({ tank, onBack }) => {
   const [selectedFish, setSelectedFish] = useState(null);
   const [fishImages, setFishImages] = useState([]);
   const [tankData, setTankData] = useState({
-    Ph: tank.Ph || '-', // Initialize with tank values
-    turbidity: tank.turbidity || '-',
-    temp: tank.temp || '-',
+    Ph: tank.Ph || '0', // Initialize with tank values
+    turbidity: tank.turbidity || '0',
+    temp: tank.temp || '0',
   });
 
   useEffect(() => {
@@ -69,9 +69,9 @@ const TankData = ({ tank, onBack }) => {
     setFishImages([]);
 
     const resetValues = {
-      Ph: '-', // Reset pH to '-'
-      turbidity: '-', // Reset turbidity to '-'
-      temp: '-', // Reset temperature to '-'
+      Ph: '0', // Reset pH to '-'
+      turbidity: '0', // Reset turbidity to '-'
+      temp: '0', // Reset temperature to '-'
     };
 
     try {
@@ -148,7 +148,7 @@ const TankData = ({ tank, onBack }) => {
           </div>
           <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: '10px' }}>
             <p style={{ color: '#46a2f5' }}>Fish Name: </p>
-            <p style={{ marginLeft: '10px' }}>{selectedFish ? selectedFish.fish_name : 'N/A'}</p>
+            <p style={{ marginLeft: '10px' }}>{selectedFish ? selectedFish.fish_name : 'NULL'}</p>
           </div>
           <div className='seper' style={{ width: '450px', height: '3px', marginBottom: '20px' }}></div>
           <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>

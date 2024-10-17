@@ -6,7 +6,7 @@ export default function AddingForm({ addTank }) {
     const handleAddTank = async () => {
         if (tankName) {
             try {
-                const response = await fetch('http://localhost:3004/tanks', {
+                    const response = await fetch('http://localhost:3004/tanks', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
