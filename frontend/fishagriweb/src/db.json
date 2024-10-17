@@ -1,920 +1,272 @@
 {
-  "users": [
-    {
-      "id": "0",
-      "firstName": "Toka",
-      "lastName": "Mohsen",
-      "email": "tokamohsen@gmail.com",
-      "password": "169232318411"
-    },
-    {
-      "id": "1",
-      "firstName": "Jessica",
-      "lastName": "Mina",
-      "email": "jessicamina@gmail.com",
-      "password": "712572811326"
-    },
-    {
-      "id": "636b",
-      "firstName": "habiba",
-      "lastName": "mohamed",
-      "email": "habiba@gmail.com",
-      "password": "erdyfjbnvygibhkml,"
-    }
-  ],
   "tanks": [
     {
-      "name": "1",
-      "fishimage": [
+      "tank_no": "1",
+      "fish_name": "Nemo",
+      "Ph": 9,
+      "temp": 30,
+      "turbidity": 50,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Nemo",
-          "ph": 7,
-          "tur": 50,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Dory",
-          "ph": 7.2,
-          "tur": 48,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Marlin",
-          "ph": 7,
-          "tur": 50,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Bubbles",
-          "ph": 7.1,
-          "tur": 51,
-          "temp": 31
+          "id": "1",
+          "fish_name": "Nemo",
+          "fish_image1": "require('./images/1.jpg')",
+          "min_ph": "6.50",
+          "max_ph": "7.40",
+          "min_temp": "20.22",
+          "max_temp": "20.24",
+          "min_turbidity": "10.50",
+          "max_turbidity": "15.20",
+          "fish_image2": "require('./images/1.jpg')",
+          "fish_image3": "require('./images/1.jpg')",
+          "fish_image4": "require('./images/1.jpg')"
         }
-      ],
-      "id": "1"
+      ]
     },
     {
-      "name": "2",
-      "fishimage": [
+      "tank_no": "2",
+      "fish_name": "Dory",
+      "Ph": 8,
+      "temp": 28,
+      "turbidity": 45,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Oscar",
-          "ph": 6.5,
-          "tur": 40,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Goldie",
-          "ph": 6.6,
-          "tur": 42,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Guppy",
-          "ph": 6.5,
-          "tur": 40,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Angelfish",
-          "ph": 6.7,
-          "tur": 39,
-          "temp": 28
+          "id": "2",
+          "fish_name": "Dory",
+          "fish_image1": "require('./images/2.jpg')",
+          "min_ph": "6.80",
+          "max_ph": "7.50",
+          "min_temp": "19.50",
+          "max_temp": "22.00",
+          "min_turbidity": "12.00",
+          "max_turbidity": "18.00",
+          "fish_image2": "require('./images/2.jpg')",
+          "fish_image3": "require('./images/2.jpg')",
+          "fish_image4": "require('./images/2.jpg')"
         }
-      ],
-      "id": "2"
+      ]
     },
     {
-      "name": "3",
-      "fishimage": [
+      "tank_no": "3",
+      "fish_name": "Marlin",
+      "Ph": 7.5,
+      "temp": 26,
+      "turbidity": 40,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Betta",
-          "ph": 7.2,
-          "tur": 45,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Tetra",
-          "ph": 7.1,
-          "tur": 46,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Cichlid",
-          "ph": 7,
-          "tur": 44,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Platy",
-          "ph": 7.3,
-          "tur": 47,
-          "temp": 28
+          "id": "3",
+          "fish_name": "Marlin",
+          "fish_image1": "require('./images/3.jpg')",
+          "min_ph": "6.70",
+          "max_ph": "7.30",
+          "min_temp": "18.00",
+          "max_temp": "23.00",
+          "min_turbidity": "11.00",
+          "max_turbidity": "16.50",
+          "fish_image2": "require('./images/3.jpg')",
+          "fish_image3": "require('./images/3.jpg')",
+          "fish_image4": "require('./images/3.jpg')"
         }
-      ],
-      "id": "3"
+      ]
     },
     {
-      "name": "4",
-      "fishimage": [
+      "tank_no": "4",
+      "fish_name": "Bubbles",
+      "Ph": 7,
+      "temp": 25,
+      "turbidity": 35,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Swordtail",
-          "ph": 6.8,
-          "tur": 55,
-          "temp": 26
-        },
-        {
-          "url": "require('')",
-          "name": "Zebrafish",
-          "ph": 6.9,
-          "tur": 54,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "GloFish",
-          "ph": 6.8,
-          "tur": 55,
-          "temp": 26
-        },
-        {
-          "url": "require('')",
-          "name": "Molly",
-          "ph": 7,
-          "tur": 56,
-          "temp": 27
+          "id": "4",
+          "fish_name": "Bubbles",
+          "fish_image1": "require('./images/4.jpg')",
+          "min_ph": "6.60",
+          "max_ph": "7.20",
+          "min_temp": "20.00",
+          "max_temp": "24.00",
+          "min_turbidity": "9.00",
+          "max_turbidity": "14.00",
+          "fish_image2": "require('./images/4.jpg')",
+          "fish_image3": "require('./images/4.jpg')",
+          "fish_image4": "require('./images/4.jpg')"
         }
-      ],
-      "id": "4"
+      ]
     },
     {
-      "name": "5",
-      "fishimage": [
+      "tank_no": "5",
+      "fish_name": "Gill",
+      "Ph": 6.8,
+      "temp": 24,
+      "turbidity": 30,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Clownfish",
-          "ph": 7.1,
-          "tur": 48,
-          "temp": 31
-        },
-        {
-          "url": "require('')",
-          "name": "Neon Tetra",
-          "ph": 7,
-          "tur": 47,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Cherry Barb",
-          "ph": 7.2,
-          "tur": 49,
-          "temp": 31
-        },
-        {
-          "url": "require('')",
-          "name": "Danio",
-          "ph": 7.1,
-          "tur": 48,
-          "temp": 31
+          "id": "5",
+          "fish_name": "Gill",
+          "fish_image1": "require('./images/5.jpg')",
+          "min_ph": "6.40",
+          "max_ph": "7.00",
+          "min_temp": "21.00",
+          "max_temp": "23.50",
+          "min_turbidity": "8.50",
+          "max_turbidity": "13.50",
+          "fish_image2": "require('./images/5.jpg')",
+          "fish_image3": "require('./images/5.jpg')",
+          "fish_image4": "require('./images/5.jpg')"
         }
-      ],
-      "id": "5"
+      ]
     },
     {
-      "name": "6",
-      "fishimage": [
+      "tank_no": "6",
+      "fish_name": "Bloat",
+      "Ph": 7.2,
+      "temp": 29,
+      "turbidity": 38,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Blue Tang",
-          "ph": 7.3,
-          "tur": 60,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Blenny",
-          "ph": 7.2,
-          "tur": 59,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Mandarin Fish",
-          "ph": 7.4,
-          "tur": 58,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Lionfish",
-          "ph": 7.3,
-          "tur": 60,
-          "temp": 27
+          "id": "6",
+          "fish_name": "Bloat",
+          "fish_image1": "require('./images/6.jpg')",
+          "min_ph": "6.90",
+          "max_ph": "7.60",
+          "min_temp": "20.50",
+          "max_temp": "24.50",
+          "min_turbidity": "10.00",
+          "max_turbidity": "17.00",
+          "fish_image2": "require('./images/6.jpg')",
+          "fish_image3": "require('./images/6.jpg')",
+          "fish_image4": "require('./images/6.jpg')"
         }
-      ],
-      "id": "6"
+      ]
     },
     {
-      "name": "7",
-      "fishimage": [
+      "tank_no": "7",
+      "fish_name": "Peach",
+      "Ph": 6.9,
+      "temp": 27,
+      "turbidity": 42,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Cardinal Tetra",
-          "ph": 6.8,
-          "tur": 60,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Silver Dollar",
-          "ph": 6.9,
-          "tur": 59,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Bristlenose Pleco",
-          "ph": 6.8,
-          "tur": 60,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Discus",
-          "ph": 7,
-          "tur": 61,
-          "temp": 30
+          "id": "7",
+          "fish_name": "Peach",
+          "fish_image1": "require('./images/7.jpg')",
+          "min_ph": "6.50",
+          "max_ph": "7.30",
+          "min_temp": "19.00",
+          "max_temp": "22.50",
+          "min_turbidity": "9.50",
+          "max_turbidity": "16.00",
+          "fish_image2": "require('./images/7.jpg')",
+          "fish_image3": "require('./images/7.jpg')",
+          "fish_image4": "require('./images/7.jpg')"
         }
-      ],
-      "id": "7"
+      ]
     },
     {
-      "name": "8",
-      "fishimage": [
+      "tank_no": "8",
+      "fish_name": "Jacques",
+      "Ph": 7.1,
+      "temp": 28,
+      "turbidity": 39,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Gourami",
-          "ph": 7,
-          "tur": 53,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Killifish",
-          "ph": 7.1,
-          "tur": 52,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Rainbowfish",
-          "ph": 7,
-          "tur": 53,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Loach",
-          "ph": 7.2,
-          "tur": 54,
-          "temp": 28
+          "id": "8",
+          "fish_name": "Jacques",
+          "fish_image1": "require('./images/8.jpg')",
+          "min_ph": "6.70",
+          "max_ph": "7.40",
+          "min_temp": "20.00",
+          "max_temp": "24.00",
+          "min_turbidity": "10.50",
+          "max_turbidity": "15.50",
+          "fish_image2": "require('./images/8.jpg')",
+          "fish_image3": "require('./images/8.jpg')",
+          "fish_image4": "require('./images/8.jpg')"
         }
-      ],
-      "id": "8"
+      ]
     },
     {
-      "name": "9",
-      "fishimage": [
+      "tank_no": "9",
+      "fish_name": "Deb",
+      "Ph": 6.7,
+      "temp": 26,
+      "turbidity": 37,
+      "fishdata": [
         {
-          "url": "require('')",
-          "name": "Peacock Cichlid",
-          "ph": 7.4,
-          "tur": 52,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Zebra Cichlid",
-          "ph": 7.3,
-          "tur": 51,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Catfish",
-          "ph": 7.4,
-          "tur": 52,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Pleco",
-          "ph": 7.2,
-          "tur": 53,
-          "temp": 29
+          "id": "9",
+          "fish_name": "Deb",
+          "fish_image1": "require('./images/9.jpg')",
+          "min_ph": "6.60",
+          "max_ph": "7.30",
+          "min_temp": "19.50",
+          "max_temp": "23.50",
+          "min_turbidity": "9.00",
+          "max_turbidity": "14.50",
+          "fish_image2": "require('./images/9.jpg')",
+          "fish_image3": "require('./images/9.jpg')",
+          "fish_image4": "require('./images/9.jpg')"
         }
-      ],
-      "id": "9"
+      ]
     },
     {
-      "name": "10",
-      "fishimage": [
-        {
-          "url": "require('')",
-          "name": "Tiger Barb",
-          "ph": 7,
-          "tur": 50,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Ram Cichlid",
-          "ph": 6.8,
-          "tur": 48,
-          "temp": 29
-        },
-        {
-          "url": "require('')",
-          "name": "Kribensis",
-          "ph": 7.1,
-          "tur": 47,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Clown Loach",
-          "ph": 7,
-          "tur": 49,
-          "temp": 28
-        }
-      ],
-      "id": "10"
-    },
-    {
-      "name": "11",
-      "fishimage": [
-        {
-          "url": "require('')",
-          "name": "Black Ghost",
-          "ph": 7.2,
-          "tur": 45,
-          "temp": 30
-        },
-        {
-          "url": "require('')",
-          "name": "Endler's Livebearer",
-          "ph": 7,
-          "tur": 44,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Arowana",
-          "ph": 7.3,
-          "tur": 46,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Koi",
-          "ph": 7.1,
-          "tur": 47,
-          "temp": 29
-        }
-      ],
-      "id": "11"
-    },
-    {
-      "name": "12",
-      "fishimage": [
-        {
-          "url": "require('')",
-          "name": "Betta Splendens",
-          "ph": 6.9,
-          "tur": 50,
-          "temp": 26
-        },
-        {
-          "url": "require('')",
-          "name": "Clown Pleco",
-          "ph": 7,
-          "tur": 52,
-          "temp": 27
-        },
-        {
-          "url": "require('')",
-          "name": "Harlequin Rasbora",
-          "ph": 6.8,
-          "tur": 51,
-          "temp": 28
-        },
-        {
-          "url": "require('')",
-          "name": "Anglerfish",
-          "ph": 7.1,
-          "tur": 53,
-          "temp": 29
-        }
-      ],
-      "id": "12"
-    },
-    {
-      "id": "2ea1",
-      "name": "10"
+      "id": "7b75",
+      "tank_no": "10"
     }
   ],
-  "records": [
+  "addtank": [
+    {}
+  ],
+  "addfish": [
     {
-      "id": "1",
-      "day": "Tue",
-      "daynum": "1",
-      "tank": "3",
-      "time": "1:12 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
+      "id": "6d09",
+      "fish_name": "Nemo",
+      "tank_no": "1"
     },
     {
-      "id": "2",
-      "day": "Tue",
-      "daynum": "1",
-      "tank": "1",
-      "time": "4:37 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "3",
-      "day": "Tue",
-      "daynum": "1",
-      "tank": "4",
-      "time": "5:29 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "4",
-      "day": "Tue",
-      "daynum": "1",
-      "tank": "2",
-      "time": "7:45 AM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "5",
-      "day": "Wed",
-      "daynum": "2",
-      "tank": "5",
-      "time": "2:01 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "6",
-      "day": "Wed",
-      "daynum": "2",
-      "tank": "3",
-      "time": "4:22 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "7",
-      "day": "Wed",
-      "daynum": "2",
-      "tank": "8",
-      "time": "5:35 AM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "8",
-      "day": "Wed",
-      "daynum": "2",
-      "tank": "6",
-      "time": "6:48 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "9",
-      "day": "Thu",
-      "daynum": "3",
-      "tank": "7",
-      "time": "1:11 AM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "active"
-    },
-    {
-      "id": "10",
-      "day": "Thu",
-      "daynum": "3",
-      "tank": "9",
-      "time": "5:36 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "11",
-      "day": "Thu",
-      "daynum": "3",
-      "tank": "4",
-      "time": "8:15 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "12",
-      "day": "Thu",
-      "daynum": "3",
-      "tank": "2",
-      "time": "9:45 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "13",
-      "day": "Fri",
-      "daynum": "4",
-      "tank": "8",
-      "time": "1:30 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "14",
-      "day": "Fri",
-      "daynum": "4",
-      "tank": "6",
-      "time": "3:22 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "15",
-      "day": "Fri",
-      "daynum": "4",
-      "tank": "3",
-      "time": "7:40 AM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "16",
-      "day": "Fri",
-      "daynum": "4",
-      "tank": "5",
-      "time": "9:18 AM",
-      "pump": "active",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "17",
-      "day": "Sat",
-      "daynum": "5",
-      "tank": "2",
-      "time": "4:05 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "18",
-      "day": "Sat",
-      "daynum": "5",
-      "tank": "9",
-      "time": "12:55 PM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "19",
-      "day": "Sat",
-      "daynum": "5",
-      "tank": "4",
-      "time": "6:30 PM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "20",
-      "day": "Sat",
-      "daynum": "5",
-      "tank": "1",
-      "time": "8:12 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "21",
-      "day": "Sun",
-      "daynum": "6",
-      "tank": "7",
-      "time": "1:30 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "22",
-      "day": "Sun",
-      "daynum": "6",
-      "tank": "3",
-      "time": "5:15 PM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "23",
-      "day": "Sun",
-      "daynum": "6",
-      "tank": "2",
-      "time": "9:40 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "24",
-      "day": "Sun",
-      "daynum": "6",
-      "tank": "6",
-      "time": "10:10 PM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "25",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "1",
-      "time": "4:45 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "26",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "5",
-      "time": "5:30 PM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "27",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "4",
-      "time": "6:15 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "28",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "2",
-      "time": "8:28 PM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "29",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "6",
-      "time": "9:12 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "30",
-      "day": "Mon",
-      "daynum": "7",
-      "tank": "3",
-      "time": "10:45 PM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "31",
-      "day": "Tue",
-      "daynum": "8",
-      "tank": "5",
-      "time": "2:15 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "32",
-      "day": "Tue",
-      "daynum": "8",
-      "tank": "8",
-      "time": "4:50 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "33",
-      "day": "Tue",
-      "daynum": "8",
-      "tank": "1",
-      "time": "6:35 AM",
-      "pump": "inactive",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "34",
-      "day": "Tue",
-      "daynum": "8",
-      "tank": "2",
-      "time": "10:40 AM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "35",
-      "day": "Wed",
-      "daynum": "9",
-      "tank": "4",
-      "time": "6:05 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "36",
-      "day": "Wed",
-      "daynum": "9",
-      "tank": "3",
-      "time": "1:20 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "active",
-      "heater": "inactive"
-    },
-    {
-      "id": "37",
-      "day": "Wed",
-      "daynum": "9",
-      "tank": "5",
-      "time": "3:12 PM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "38",
-      "day": "Wed",
-      "daynum": "9",
-      "tank": "7",
-      "time": "9:30 PM",
-      "pump": "active",
-      "motor": "inactive",
-      "feeder": "inactive",
-      "heater": "inactive"
-    },
-    {
-      "id": "39",
-      "day": "Thu",
-      "daynum": "10",
-      "tank": "9",
-      "time": "2:10 AM",
-      "pump": "inactive",
-      "motor": "active",
-      "feeder": "inactive",
-      "heater": "active"
-    },
-    {
-      "id": "e7ab",
-      "day": "Sunday",
-      "daynum": "1",
-      "tank": "9",
-      "treatment": "MOTOR",
-      "state": "inactive",
-      "time": "12:10:50 AM"
+      "id": "cdcf",
+      "fish_name": "Nemo",
+      "tank_no": "1"
     }
   ],
-  "historyrecord": [
+  "reset": [
     {
-      "id": "4",
-      "date": "2024-10-01",
-      "time": "3:30 AM",
-      "ph": "7.9",
-      "temp": "32",
-      "tur": "0.5",
-      "tankid": "4"
+      "id": "16cf",
+      "tank_no": "1"
     },
     {
-      "id": "7",
-      "date": "2024-10-04",
-      "time": "5:00 AM",
-      "ph": "7.4",
-      "temp": "28",
-      "tur": "3.0",
-      "tankid": "7"
-    },
-    {
-      "id": "8",
-      "date": "2024-10-05",
-      "time": "5:30 AM",
-      "ph": "7.3",
-      "temp": "27",
-      "tur": "1.0",
-      "tankid": "8"
-    },
-    {
-      "id": "9",
-      "date": "2024-10-13",
-      "time": "6:00 AM",
-      "ph": "7.2",
-      "temp": "26",
-      "tur": "0.8",
-      "tankid": "9"
+      "id": "322c",
+      "tank_no": "1"
     }
   ],
-  "admin": [
-    
+  "update": [
+    {
+      "id": "32c1",
+      "Ph": "-",
+      "turbidity": "-",
+      "temp": "-"
+    },
+    {
+      "id": "5acd",
+      "Ph": "-",
+      "turbidity": "-",
+      "temp": "-"
+    },
+    {
+      "id": "3565",
+      "Ph": "-",
+      "turbidity": "-",
+      "temp": "-"
+    },
+    {
+      "id": "c8d0",
+      "Ph": "-",
+      "turbidity": "-",
+      "temp": "-"
+    },
+    {
+      "id": "a372",
+      "Ph": "-",
+      "turbidity": "-",
+      "temp": "-"
+    }
   ]
 }
