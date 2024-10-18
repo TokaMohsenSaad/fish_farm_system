@@ -153,8 +153,6 @@ export default function Control() {
             "19",
             "20",
             "21",
-            "22",
-            "23",
           ].map((day, index) => (
             <div
               key={index}

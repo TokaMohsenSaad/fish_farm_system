@@ -147,8 +147,8 @@ export default function Signup() {
               backgroundColor: "white",
               padding: "20px",
               borderRadius: "8px",
-              width: "650px",
-              height: "800px",
+              width: "560px",
+              height: "550px",
             }}
           >
             <div
@@ -354,17 +354,7 @@ export default function Signup() {
                     </div>
                   </div>
                 ))}
-              <div>
-                <div className="loginwith"></div>
-                <div className="loginwith"></div>
-              </div>
-              <div style={{ display: "flex" }}>
-                <div className="seper"></div>
-                <p style={{ color: "#46a2f5", margin: "10px 20px 0 20px" }}>
-                  OR
-                </p>
-                <div className="seper"></div>
-              </div>
+
               <div style={{ display: "flex" }}>
                 {/* First Name and Last Name Inputs */}
                 <div style={{ marginRight: "20px", textAlign: "start" }}>

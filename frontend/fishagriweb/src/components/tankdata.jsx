@@ -1,39 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import AddingFish from './addfish';
+import React, { useState, useEffect } from "react";
+import AddingFish from "./addfish";
 
 const TankData = ({ tank, onBack }) => {
   const [isAddingFormVisible, setAddingFormVisible] = useState(false);
   const [selectedFish, setSelectedFish] = useState(null);
   const [fishImages, setFishImages] = useState([]);
   const [tankData, setTankData] = useState({
-    Ph: tank.Ph || '0', // Initialize with tank values
-    turbidity: tank.turbidity || '0',
-    temp: tank.temp || '0',
+    Ph: tank.Ph || "0", // Initialize with tank values
+    turbidity: tank.turbidity || "0",
+    temp: tank.temp || "0",
   });
 
   useEffect(() => {
-    const fetchTankData = async () => {
-      try {
-        const response = await fetch(`http://localhost:3004/tanks/${tank.tank_no}`);
-        const data = await response.json();
-        setTankData(data);
+    // const fetchTankData = async () => {
+    //   try {
+    //     const response = await fetch(`http://localhost:3004/tanks/${tank.tank_no}`);
+    //     const data = await response.json();
+    //     setTankData(data);
 
-        if (data.fishdata && data.fishdata.length > 0) {
-          setSelectedFish(data.fishdata[0]);
+    //     if (data.fishdata && data.fishdata.length > 0) {
+    //       setSelectedFish(data.fishdata[0]);
+    //       const images = [
+    //         data.fishdata[0].fish_image1,
+    //         data.fishdata[0].fish_image2,
+    //         data.fishdata[0].fish_image3,
+    //         data.fishdata[0].fish_image4,
+    //       ].filter(image => image);
+    //       setFishImages(images);
+    //     }
+    //   } catch (error) {
+    //     console.error('Error fetching tank data:', error);
+    //   }
+    // };
+
+    const fetchTankData = async (tank_no) => {
+      try {
+        setFishImages([]);
+        setSelectedFish(null);
+
+        // Fetch the data for the specific tank by tank_no
+        const response = await fetch(
+          `http://localhost:9000/api/tank/tanks/${tank_no}`
+        );
+        const data = await response.json();
+        console.log("tank number:", data.tank_no);
+        setTankData(data); // Assuming setTankData stores the tank data in state
+        console.log("data fetched for the tank: ", data);
+
+        if (data.fish_images) {
           const images = [
-            data.fishdata[0].fish_image1,
-            data.fishdata[0].fish_image2,
-            data.fishdata[0].fish_image3,
-            data.fishdata[0].fish_image4,
-          ].filter(image => image);
-          setFishImages(images);
+            data.fish_images.fish_image1,
+            data.fish_images.fish_image2,
+            data.fish_images.fish_image3,
+            data.fish_images.fish_image4,
+          ].filter((image) => image); // Filter out null images
+          setFishImages(images); // Assuming setFishImages stores fish images in state
+          setSelectedFish(data.fish_name);
+          console.log("Fish name: ", data.fish_name);
         }
       } catch (error) {
-        console.error('Error fetching tank data:', error);
+        console.error("Error fetching tank data:", error);
       }
     };
 
-    fetchTankData();
+    fetchTankData(tank.tank_no);
   }, [tank.tank_no]);
 
   const closeForm = () => {
@@ -44,159 +74,304 @@ const TankData = ({ tank, onBack }) => {
     setAddingFormVisible(true);
   };
 
+  // const handleAddFish = async (fishName) => {
+  //   if (fishName) {
+  //     const newFish = { fish_name: fishName, tank_no: tank.tank_no };
+  //     setSelectedFish(newFish);
+  //     setFishImages([...fishImages, require("../images/fish-tank.png")]);
+
+  //     try {
+  //       const response = await fetch(`http://localhost:3004/addfish`, {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(newFish),
+  //       });
+  //       if (!response.ok) throw new Error("Failed to add fish");
+  //       setAddingFormVisible(false);
+  //     } catch (error) {
+  //       console.error("Error adding fish:", error);
+  //     }
+  //   }
+  // };
+
   const handleAddFish = async (fishName) => {
     if (fishName) {
-      const newFish = { fish_name: fishName, tank_no: tank.tank_no };
-      setSelectedFish(newFish);
-      setFishImages([...fishImages, require('../images/fish-tank.png')]);
+      const updatedFish = { fish_name: fishName, tank_no: tank.tank_no }; // Data to update
 
       try {
-        const response = await fetch(`http://localhost:3004/addfish`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newFish),
-        });
-        if (!response.ok) throw new Error('Failed to add fish');
+        const response = await fetch(
+          `http://localhost:9000/api/tank/update-fish-name`,
+          {
+            method: "PUT", // Changed to PUT to update the tank
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedFish), // Send the updated fish data
+          }
+        );
+
+        if (!response.ok) throw new Error("Failed to update fish name");
+
+        // Update UI based on success
+        setSelectedFish(updatedFish.fish_name);
+        // setFishImages([...fishImages, require("../images/fish-tank.png")]);
         setAddingFormVisible(false);
       } catch (error) {
-        console.error('Error adding fish:', error);
+        console.error("Error updating fish name:", error);
       }
     }
   };
+
+  // const handleReset = async () => {
+  //   setSelectedFish(null);
+  //   setFishImages([]);
+
+  //   const resetValues = {
+  //     Ph: "0", // Reset pH to '-'
+  //     turbidity: "0", // Reset turbidity to '-'
+  //     temp: "0", // Reset temperature to '-'
+  //   };
+
+  //   try {
+  //     const response = await fetch(`http://localhost:3004/reset`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ tank_no: tank.tank_no }), // Pass the tank_no to the API
+  //     });
+
+  //     if (!response.ok) throw new Error("Failed to reset tank data");
+
+  //     setTankData(resetValues); // Set tank data to reset values
+  //   } catch (error) {
+  //     console.error("Error resetting tank data:", error);
+  //   }
+  // };
 
   const handleReset = async () => {
     setSelectedFish(null);
     setFishImages([]);
 
     const resetValues = {
-      Ph: '0', // Reset pH to '-'
-      turbidity: '0', // Reset turbidity to '-'
-      temp: '0', // Reset temperature to '-'
+      Ph: "0", // Reset pH to '0'
+      turbidity: "0", // Reset turbidity to '0'
+      temp: "0", // Reset temperature to '0'
     };
 
     try {
-      const response = await fetch(`http://localhost:3004/reset`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch(`http://localhost:9000/api/tank/reset`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ tank_no: tank.tank_no }), // Pass the tank_no to the API
       });
 
-      if (!response.ok) throw new Error('Failed to reset tank data');
+      if (!response.ok) throw new Error("Failed to reset tank data");
 
       setTankData(resetValues); // Set tank data to reset values
     } catch (error) {
-      console.error('Error resetting tank data:', error);
+      console.error("Error resetting tank data:", error);
     }
   };
 
   const handleUpdate = async () => {
     try {
-      // Post updated tank data to the API with the tank's id
-      const response = await fetch(`http://localhost:3004/update`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id: tank.id, ...tankData }), // Pass the id and tankData in the request body
-      });
+      // // Post updated tank data to the API with the tank's id
+      // const response = await fetch(`http://localhost:3004/update`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ id: tank.id, ...tankData }), // Pass the id and tankData in the request body
+      // });
 
-      if (!response.ok) throw new Error('Failed to update tank data');
+      // if (!response.ok) throw new Error("Failed to update tank data");
 
       // Fetch the updated tank data from the tanks API
-      const fetchResponse = await fetch(`http://localhost:3004/tanks/${tank.tank_no}`);
-      if (!fetchResponse.ok) throw new Error('Failed to fetch updated tank data');
+
+      const fetchResponse = await fetch(
+        `http://localhost:9000/api/tank/tanks/update/${tank.tank_no}` // Updated the URL to match your API endpoint
+      );
+      if (!fetchResponse.ok)
+        throw new Error("Failed to fetch updated tank data");
 
       const updatedData = await fetchResponse.json();
-      setTankData(updatedData); // Update the tank data state with the new values
+
+      console.log("Updated tank data: ", updatedData);
+
+      setTankData({
+        tank_no: updatedData.tank_no,
+        fish_name: updatedData.fish_name,
+        Ph: updatedData.Ph,
+        temp: updatedData.temp,
+        turbidity: updatedData.turbidity,
+        fish_images: updatedData.fish_images || {}, // Handle fish images
+      });
     } catch (error) {
-      console.error('Error updating tank data:', error);
+      console.error("Error updating tank data:", error);
     }
   };
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <div>
-          <div style={{ textAlign: 'center', marginTop: '15px', marginBottom: '50px' }}>
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "15px",
+              marginBottom: "50px",
+            }}
+          >
             {selectedFish ? (
-              <img src={fishImages[0]} alt={selectedFish.fish_name} style={{ width: '400px', borderRadius: '8px', height: '350px' }} />
+              <img
+                src={fishImages[0]}
+                alt={selectedFish.fish_name}
+                style={{ width: "400px", borderRadius: "8px", height: "350px" }}
+              />
             ) : (
-              <img src={require('../images/fish-tank.png')} alt="Fish Tank" style={{ width: '400px', borderRadius: '8px', height: '350px' }} />
+              <img
+                src={require("../images/fish-tank.png")}
+                alt="Fish Tank"
+                style={{ width: "400px", borderRadius: "8px", height: "350px" }}
+              />
             )}
           </div>
-          <div className='seper' style={{ width: '450px', height: '5px' }}></div>
+          <div
+            className="seper"
+            style={{ width: "450px", height: "5px" }}
+          ></div>
 
           {fishImages.length > 0 ? (
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '15px', justifyContent: 'center' }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginTop: "15px",
+                justifyContent: "center",
+              }}
+            >
               {fishImages.map((url, index) => (
-                <div key={index} style={{ margin: '5px', cursor: 'pointer' }}>
-                  <img src={url} alt={`Fish ${index + 1}`} style={{ width: '100px', borderRadius: '8px' }} />
+                <div key={index} style={{ margin: "5px", cursor: "pointer" }}>
+                  <img
+                    src={url}
+                    alt={`Fish ${index + 1}`}
+                    style={{ width: "100px", borderRadius: "8px" }}
+                  />
                 </div>
               ))}
             </div>
           ) : (
-            <p style={{ textAlign: 'center', marginTop: '20px' }}>No fish added yet</p>
+            <p style={{ textAlign: "center", marginTop: "20px" }}>
+              No fish added yet
+            </p>
           )}
 
-          <div className='seper' style={{ width: '450px', height: '5px' }}></div>
+          <div
+            className="seper"
+            style={{ width: "450px", height: "5px" }}
+          ></div>
         </div>
 
-        <div style={{ marginTop: '50px' }}>
-          <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: '15px' }}>
-            <h4 style={{ color: '#46a2f5' }}>Tank No. : </h4>
-            <h4 style={{ marginLeft: '10px' }}> {tank.tank_no}</h4>
+        <div style={{ marginTop: "50px" }}>
+          <div
+            style={{
+              display: "flex",
+              fontWeight: "bold",
+              marginBottom: "15px",
+            }}
+          >
+            <h4 style={{ color: "#46a2f5" }}>Tank No. : </h4>
+            <h4 style={{ marginLeft: "10px" }}> {tank.tank_no}</h4>
           </div>
-          <div style={{ display: 'flex', fontWeight: 'bold', marginBottom: '10px' }}>
-            <p style={{ color: '#46a2f5' }}>Fish Name: </p>
-            <p style={{ marginLeft: '10px' }}>{selectedFish ? selectedFish.fish_name : 'NULL'}</p>
+          <div
+            style={{
+              display: "flex",
+              fontWeight: "bold",
+              marginBottom: "10px",
+            }}
+          >
+            <p style={{ color: "#46a2f5" }}>Fish Name: </p>
+            <p style={{ marginLeft: "10px" }}>
+              {selectedFish ? selectedFish : "NULL"}
+            </p>
           </div>
-          <div className='seper' style={{ width: '450px', height: '3px', marginBottom: '20px' }}></div>
-          <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>
-            <div style={{ display: 'flex', fontWeight: 'bold' }}>
-              <p style={{ color: '#46a2f5' }}>pH: </p>
-              <p style={{ marginLeft: '10px' }}>
+          <div
+            className="seper"
+            style={{ width: "450px", height: "3px", marginBottom: "20px" }}
+          ></div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginBottom: "20px",
+            }}
+          >
+            <div style={{ display: "flex", fontWeight: "bold" }}>
+              <p style={{ color: "#46a2f5" }}>pH: </p>
+              <p style={{ marginLeft: "10px" }}>
                 <b>{tankData.Ph}</b>
               </p>
             </div>
-            <div style={{ display: 'flex', fontWeight: 'bold' }}>
-              <p style={{ color: '#46a2f5' }}>Turbidity: </p>
-              <p style={{ marginLeft: '10px' }}>
+            <div style={{ display: "flex", fontWeight: "bold" }}>
+              <p style={{ color: "#46a2f5" }}>Turbidity: </p>
+              <p style={{ marginLeft: "10px" }}>
                 <b>{tankData.turbidity}</b>
               </p>
             </div>
-            <div style={{ display: 'flex', fontWeight: 'bold' }}>
-              <p style={{ color: '#46a2f5' }}>Temperature: </p>
-              <p style={{ marginLeft: '10px' }}>
+            <div style={{ display: "flex", fontWeight: "bold" }}>
+              <p style={{ color: "#46a2f5" }}>Temperature: </p>
+              <p style={{ marginLeft: "10px" }}>
                 <b>{tankData.temp}</b>
               </p>
             </div>
           </div>
-          <div style={{ display: 'flex', marginTop: '30px' }}>
+          <div style={{ display: "flex", marginTop: "30px" }}>
             <button
               onClick={onBack}
-              style={{ textDecoration: 'none', textAlign: 'center', fontWeight: 'bold', width: '130px', marginRight: '10px' }}
-              className='addtank'
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                fontWeight: "bold",
+                width: "130px",
+                marginRight: "10px",
+              }}
+              className="addtank"
             >
               Back
             </button>
             <button
               onClick={handleAddFishClick}
-              style={{ textDecoration: 'none', textAlign: 'center', fontWeight: 'bold', width: '130px', marginRight: '10px' }}
-              className='addtank'
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                fontWeight: "bold",
+                width: "130px",
+                marginRight: "10px",
+              }}
+              className="addtank"
             >
               Add Fish
             </button>
             <button
               onClick={handleReset}
-              style={{ textDecoration: 'none', textAlign: 'center', fontWeight: 'bold', width: '130px', marginRight: '10px' }}
-              className='addtank'
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                fontWeight: "bold",
+                width: "130px",
+                marginRight: "10px",
+              }}
+              className="addtank"
             >
               Reset
             </button>
             <button
               onClick={handleUpdate}
-              style={{ textDecoration: 'none', textAlign: 'center', fontWeight: 'bold', width: '130px', marginRight: '10px' }}
-              className='addtank'
+              style={{
+                textDecoration: "none",
+                textAlign: "center",
+                fontWeight: "bold",
+                width: "130px",
+                marginRight: "10px",
+              }}
+              className="addtank"
             >
               Update
             </button>
@@ -204,28 +379,43 @@ const TankData = ({ tank, onBack }) => {
         </div>
       </div>
       {isAddingFormVisible && (
-        <div style={{
-          position: 'fixed',
-          top: '-5%',
-          left: '-34%',
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000,
-          overflow: 'hidden',
-        }}>
-          <div style={{
-            backgroundColor: 'white',
-            padding: '20px',
-            borderRadius: '8px',
-            width: '430px',
-            height: '300px'
-          }}>
-            <button onClick={closeForm} style={{ border: 0, backgroundColor: 'white', marginLeft: '360px' }}>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style={{ width: "24px", height: "24px", fill: "#46a2f5" }}>
+        <div
+          style={{
+            position: "fixed",
+            top: "-5%",
+            left: "-34%",
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+            overflow: "hidden",
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "8px",
+              width: "430px",
+              height: "300px",
+            }}
+          >
+            <button
+              onClick={closeForm}
+              style={{
+                border: 0,
+                backgroundColor: "white",
+                marginLeft: "360px",
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+                style={{ width: "24px", height: "24px", fill: "#46a2f5" }}
+              >
                 <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
               </svg>
             </button>

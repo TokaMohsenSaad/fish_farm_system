@@ -180,8 +180,8 @@ export default function Login() {
               backgroundColor: "white",
               padding: "20px",
               borderRadius: "8px",
-              width: "650px",
-              height: "800px",
+              width: "560px",
+              height: "450px",
             }}
           >
             <div
@@ -212,17 +212,7 @@ export default function Login() {
                   </button>
                 </Link>
               </p>
-              <div>
-                <div className="loginwith"></div>
-                <div className="loginwith"></div>
-              </div>
-              <div style={{ display: "flex" }}>
-                <div className="seper"></div>
-                <p style={{ color: "#46a2f5", margin: "10px 20px 0 20px" }}>
-                  OR
-                </p>
-                <div className="seper"></div>
-              </div>
+
               {error.show && (
                 <div
                   className="unvalidone"
