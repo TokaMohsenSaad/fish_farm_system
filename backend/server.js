@@ -12,7 +12,7 @@ const PORT = 9000;
 //http://localhost:9000/api/users/manage/
 //http://localhost:9000/api/historyrecord/:id
 
-//http://localhost:9000/api/controls?daynum=<formattedDate>
+//http://localhost:9000/api/tank/tanks/update/:tank_no
 
 // Middleware to parse JSON
 app.use(express.json());
